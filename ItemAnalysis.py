@@ -35,14 +35,14 @@ with st.container():
     st.header("Item Analysis for MCQ")
     st.write("This program is designed by Aj.Dr.Niwed Kullawong, HBA program, SHS, MFU")
 st.sidebar.header("User Input Data (.xlsx)")
-uploaded_file = st.sidebar.file_uploader("Pick a file", type=".csv")
+uploaded_file = st.sidebar.file_uploader("Pick a file", type=".xlsx")
 if uploaded_file:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_excel(uploaded_file)
     # Define new column names for the first two columns
     new_column_names = ['Student Name', 'Student ID']
     # Change the column names of the first two columns
     df.columns = new_column_names + list(df.columns[2:])
-    df3 = pd.read_csv(uploaded_file)
+    df3 = pd.read_excel(uploaded_file)
     df3.columns = new_column_names + list(df3.columns[2:])
     question_count = len(df.columns[2:])
     question_list = df.columns[2:]
